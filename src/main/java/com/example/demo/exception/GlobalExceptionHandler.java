@@ -21,6 +21,11 @@ public class GlobalExceptionHandler {
 
         return ResponseEntity.badRequest().body(errors);
     }
+    
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgument(IllegalArgumentException ex) {
+        return ResponseEntity.badRequest().body(ex.getMessage());
+    }
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleInvalidLoan(Exception ex) {

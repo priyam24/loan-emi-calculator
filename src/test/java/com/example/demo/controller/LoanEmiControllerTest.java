@@ -35,7 +35,7 @@ class LoanEmiControllerTest {
         request.setAnnualInterestRate(12.0);
         request.setLoanTermInMonths(12);
 
-        when(loanEmiService.calculateEmi(100000, 12, 12))
+        when(loanEmiService.calculateEmi(100000, 12.0, 12))
                 .thenReturn(8884.88);
 
         mockMvc.perform(post("/api/loan/emi")
