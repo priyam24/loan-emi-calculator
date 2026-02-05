@@ -36,13 +36,13 @@ class LoanEmiControllerTest {
         request.setLoanTermInMonths(12);
 
         when(loanEmiService.calculateEmi(100000, 12, 12))
-                .thenReturn(8884.0);
+                .thenReturn(8884.88);
 
         mockMvc.perform(post("/api/loan/emi")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(objectMapper.writeValueAsString(request)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.emiAmount").value(8884.0));
+                .andExpect(jsonPath("$.emiAmount").value(8884.88));
     }
     
     @Test

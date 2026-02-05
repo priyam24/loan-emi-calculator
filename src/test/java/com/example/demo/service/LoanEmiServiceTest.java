@@ -11,6 +11,6 @@ public class LoanEmiServiceTest {
     @Test
     void shouldCalculateEmiSuccessfully() {
         double emi = service.calculateEmi(100000, 12, 12);
-        assertEquals(8885.0, emi);
+        assertEquals(8884.88, emi);
     }
 }

@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.text.DecimalFormat;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -13,6 +15,7 @@ public class LoanEmiService {
         double numerator = principal * monthlyRate * Math.pow(1 + monthlyRate, tenureInMonths);
         double denominator = Math.pow(1 + monthlyRate, tenureInMonths) - 1;
 
-        return Math.round(numerator / denominator);
+        DecimalFormat df = new DecimalFormat("0.00");
+        return Double.parseDouble(df.format(numerator / denominator));
     }
 }
